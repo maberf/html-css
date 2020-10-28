@@ -1,22 +1,89 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne+Tactile&display=swap"); /*;fonte Google*/
+@font-face {
+    font-family: 'FonteLogo';
+    src: url("../_fonts/bubblegun.ttf"); /*fonte personalizada*/
+}
+
 body {
-    background-color:white;
+    font-family: Arial, sans-serif;
+    background-color: #dddddd;
     color:black;
 }
+
+div#interface {
+    width: 900px; /*largura da "página"*/
+    background-color:white;
+    /*a partir do HTML5 não há mais centralização, usam-se margens*/
+    /*os valores auto para as margens geram centralização automática*/
+    margin: 30px auto 0px auto; /*cima direita baixo esquerda*/
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /*sombra no contorno*/
+    padding: 10px; /*margens dentro do container*/
+}
+
+/*Formatação dos parágrafos*/
 p {
     text-align: justify;
     text-indent: 50px;
 }
+
+/*Formatação dos links*/
+a {
+    color: #606060;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*Formatação do Cabeçalho*/
+header#cabecalho img#icone { /*Formatação do ícone*/
+    position: relative; /*difere do curso, alterado para relativa*/
+    left: 800px; /*calibra a posição horizontal do ícone no cabeçalho*/
+    top: -80px; /*calibra a altura do ícone (direito) no cabeçalho*/
+}
+
+header#cabecalho {
+    border-bottom: 1px #606060 solid; /*linha de contorno de baixo*/
+    /*calibra-se altura do cabeçalho e imagem de brackground - no repeat*/
+    height: 200px; /*altura do cabeçalho*/
+    background: url("../_images/lightbulb.ico") no-repeat 0Px 65px; /*altura*/
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+header#cabecalho h1 {
+    font-family: 'FonteLogo', sans-serif; /*fonte personalizada - linha 4*/
+    font-size: 30pt;
+    color: #606060;
+    /*calibra-se altura do cabeçalho e imagem de brackground - no repeat*/
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+    padding: 0px;
+    margin-bottom: 0px; /*se complementa com margem superior de h2*/
+}
+
+header#cabecalho h2 {
+    font-family: 'Syne Tactile', cursive; /*fonte Google - linha 2*/
+    font-size: 15pt;
+    color: #888888;
+    
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    padding: 0px;
+    margin-top: 0px; /*se complementa com margem inferior de h1*/
+}
+
 /*Formatação do container classe foto-legenda*/
 figure.foto-legenda {
     position: relative; /*posição da legenda relacionada ao container */
     border: 8px solid white;
     box-shadow: 1px 1px 4px black;
 }
+
 figure.foto-legenda img { /*aumenta e diminui com a página */
     width: 100%;
     height: 100%;
 }
+
 figure.foto-legenda figcaption { 
     opacity: 0;
     position: absolute; /*posição no container*/
@@ -29,58 +96,157 @@ figure.foto-legenda figcaption {
     box-sizing: border-box; /*cria box dentro da borda*/
     transition: opacity 1s; /*1s para aparecer texto*/
 }
+
 figure.foto-legenda:hover figcaption {
     opacity: 1; /*aparece texto quando mouse passa*/
-}
-    
-
-/*
-body {
-    background-color: rgb(69, 69, 69);
-    font: 13pt Arial;
+}   
+/*CSS - Formatação do menu com classes CSS*/
+nav#menu {
+    display: block; /*menu flutuante, bloco pode flutuar*/
 }
 
-main {
-    background-color: white;
+nav#menu ul {
+    list-style: none; /*retira marcadores do menu*/
+    text-transform: uppercase; /*menu em maiúsculas*/
+    position: absolute; /*possa passar por cima dos documentos*/
+    /*posição absoluta em relação ao site, relativa dentro do container*/
+    top: -20px;/*para ir dentro da margem padrão da página,"gruda" na borda*/
+    left: 200px;
+}
+
+nav#menu li {
+    display: inline-block; /*menu em linha horizontal*/
+    background-color: #dddddd;
+    padding: 10px; /*aumenta a caixa dos itens do menu*/
+    margin: 3px; /*espaço fora (entre) dos objetos*/
+    transition: background-color 1s; /*delay de transição no hover, elegância*/
+}
+
+nav#menu li:hover { /*altera a cor do elemento quando passa o mouse em cima*/
+    background-color: #606060;
+}
+
+nav#menu  h1 {
+    display: none; /*esconde o h1 do menu - expressão menu principal*/
+}
+
+nav#menu a { /*formatação dos links (âncoras)*/
+    color: #000000; /*fonte*/
+    text-decoration: none; /*retira sublinhado*/
+}
+
+nav#menu a:hover { /*altera quando passa o mouse em cima*/
+    color: #ffffff; /*fonte*/
+    text-decoration: underline; /*coloca o sublinhado*/
+}
+
+/*Formatação da seção do corpo*/
+section#corpo {
+    display: block;
     width: 500px;
-    padding: 20px;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.529);
+    float: left; /*section flutua do lado esquerdo*/
+    border-right: 1px solid #606060;
+    padding-right: 15px;
 }
 
-h1 {
-    color: darkgoldenrod;
+/*Formatação do artigo*/
+article#noticia-principal h2 {
+    font-size: 12pt;
+    color: #606060;
+    background-color: #dddddd;
+    padding: 5px 0px 5px 10px;
+    margin: 10px 0px 10px 0px;
 }
 
-h2 {
-    color: rgb(125, 92, 8);
+header#cabecalho-artigo h1 {
+    font-family: 'FonteLogo', sans-serif;
+    font-size: 20pt;
+    color: #606060;
+    margin-bottom: 0px;
 }
 
-aside {
-    display: block; 
-    font-size: 10pt;
-    text-align: justify;
-    background-color: rgb(222, 222, 222);
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+header#cabecalho-artigo h3 {
+    font-size: 13pt;
+    color: #cecece;
+    margin: 10px 0px 10px 0px;
 }
 
-aside img {
-    width: 60px; 
-    display: block; 
-    float: left;
-    margin-right: 10px;
+table#tabelaspec {
+    border: 1px solid #606060; /*borda da tabela*/
+    border-spacing: 0px; /*faz a linha fechada*/
+    margin-left:auto;
+    margin-right:auto;
 }
 
-a, a:visited {
-    color: rgb(34, 34, 34);
+table#tabelaspec td {
+    border: 1px solid #606060;
+    padding: 10px; /*cria espaço interno na tabela*/
+    text-align: center;
+    vertical-align: middle;
+}
+
+table#tabelaspec td.ce { 
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #606060;
+    text-align: right; /*alinhamento à direita*/
+    vertical-align: middle;
+}
+
+table#tabelaspec td.cd {
+    color: #000000;
+    background-color: #cecece;
+    text-align: left; /*alinhamento à esquerda*/
+}
+
+table#tabelaspec caption {
+    color: #888888;
+    font-size: 15pt;
     font-weight: bolder;
 }
 
-a:hover {
-    color: darkgoldenrod;
-    text-decoration: none;
+table#tabelaspec caption span {
+    display:block;
+    float: right;
+    color: #000000;
+    font-size: 10pt;
+    margin-top: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
-*/
+
+/*Formatação da barra lateral aside*/
+aside#lateral {
+    display: block;
+    width: 350px;
+    float: right; /*aside flutua do lado direito*/
+    color: #606060;
+    background-color: #dddddd ;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+aside#lateral  h1 {
+    font-family: 'FonteLogo', sans-serif;
+    font-size: 20pt;
+    color: #606060;
+    margin-top: 0px;
+}
+
+aside#lateral  h2 {
+    font-size: 12pt;
+    color: #ffffff;
+    background-color: #606060;
+    padding: 5px;
+}
+    
+/*Formatação do rodapé*/
+footer#rodape {
+    border-top: 1px solid #606060;
+    clear: both; /*limpa divisão de flutuação para ficar centralizado na página*/  
+}
+
+footer#rodape p {
+    text-align: center; /*centraliza o parágrafo do rodapé*/  
+}
+

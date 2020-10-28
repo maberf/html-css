@@ -1,63 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treinamento HTML5</title>
-    <link rel="stylesheet" type="text/css" href="_css/style.css">
-    <!--<style>
-        body {
-            background-color:white;
-            color:black;
-        }
-        p {
-            text-align: justify;
-            text-indent: 50px;
-        }
-    </style>-->
+    <link rel="stylesheet" href="_css/style.css">
 </head>
+<script>
+    function mudaFoto (foto) {
+        document.getElementById("icone").src= foto;
+        /*<script language="javascript" src="_javascript/funcoes.js"<scripet>;*/ 
+    }
+</script>
 <body>
-       <!--Menu de navegação com links para arquivos internos-->
-    <nav id="menu">
+<div id="interface"> <!--div de uso genérico para formatação-->
+
+    <header id="cabecalho">
+        <hgroup>
+        <h1>Cabeçalho</h1>
+        <h2>Este é o texto de cabeçalho</h2>    
+        </hgroup>
+
+        <img id="icone" src="_images/canecacha.png">
+       <!--HTML - Menu de navegação com links para arquivos internos-->
+       <!--Formatação no CSS pela chave id-->
+        <nav id="menu">
         <h1>Menu Principal</h1>
-        <ul type="disc"> <!--Lt-->
-            <li><a href="index.html">Home</a></li>
-            <li><a href="specs.html">Especificações</a></li>
-            <li><a href="fotos.html">Fotos</a></li>
-            <li><a href="multimidia.html">Multimídia</a></li>
-            <li><a href="fale-conosco.html">Fale Conosco</a></li>
+        <ul type="disc"> 
+            <li onmouseover="mudaFoto('_images/home.png')" onmouseout="mudaFoto('_images/canecacha.png')"><a href="index.html" ><a href="index.html">Home</a></li>
+            <li onmouseover="mudaFoto('_images/gear.png')" onmouseout="mudaFoto('_images/canecacha.png')"><a href="specs.html">Especificações</a></li>
+            <li onmouseover="mudaFoto('_images/pictures.png')" onmouseout="mudaFoto('_images/canecacha.png')"><a href="fotos.html">Fotos</a></li>
+            <li onmouseover="mudaFoto('_images/computer.png')" onmouseout="mudaFoto('_images/canecacha.png')"><a href="multimidia.html">Multimídia</a></li>
+            <li onmouseover="mudaFoto('_images/phone.png')" onmouseout="mudaFoto('_images/canecacha.png')"><a href="fale-conosco.html">Fale Conosco</a></li>
         </ul>
-    </nav>
-    <span style="text-decoration: underline;">Estudo e mais estudo!</span>
+        </nav>
+    </header>
     
-    <p><a href="http://www.mussum.com.br"target="_blank">Mussum</a>Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo tempor.</p>
+    <section id="corpo">
+    <article id="noticia-principal">
+    
+    <header id="cabecalho-artigo">
+    <hgroup>
+    <h1>Embromóvski</h1>
+    <h3>Mussum e Bob Esponja</h3>
+    </hgroup>
+    </header>
 
+    <p><span style="text-decoration: underline;">Estudo e mais estudo!</span></p>
+    <h2>Discurso do Mussum</h2>
+    <p><a href="http://www.mussum.com.br"target="_blank">Mussum </a>ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus. Copo furadis é disculpa de bebadis, arcu quam euismod magna. Si num tem leite então bota uma pinga aí cumpadi!</p>
+    
     <p>x<sup>2</sup> e H<sub>2</sub>O</p>
-
     <pre>
-    <code>
+    <code><!--Conteúdo em forma de código-->
         function adicionar () { 
             if (isNumero(num.value) && !inLista(num.value, val)) {
-                //window.alert('Valor OK')
                 val.push(Number(num.value))
             } else {
                 window.alert ('Valor inválido ou já inserido')
             }
-            num.value = ''
             num.focus()
     </code>
     </pre>
         <!--Conteúdo de mídia com uso de classe -->
     <figure class="foto-legenda">
-    <img src="_images/BobEsponja.jpg" width=100>
+    <img src="_images/BobEsponja.jpg" width=100px>
     <figcaption>
         <h1>Bob Esponja Filosofando</h1>
         <p>Ser ou não ser, eis a questão!</p>
     </figcaption>
     </figure>
+    <h2>Especificações Técnicas</h2>
+    <table id="tabelaspec">
+    <caption>Tabela Técnica <span>Set/20</span></caption>
+    <tr><td class="ce">Tela</td><td class="cd">Resolução de 640 x 360 pixels</td></tr>
+    <tr><td class="ce">Câmera</td><td class="cd">5 MP gravação HD 720p</td></tr>
+    <!--expansão em linha para que Conectividade valha para 2 linhas-->
+    <tr><td rowspan="2" class="ce">Conectividade</td><td class="cd">Wi-Fi 802.11 b/g</td></tr>
+    <tr><td class="cd">Bluetooth</td></tr>
+    <tr><td class="ce">Memória</td><td class="cd">16 GB (12 GB usáveis)</td></tr>
+     <!--expansão em coluna-->
+     <tr><td colspan="2">Linha extra</td><tr>
+    <!--expansão só funciona para td, não funciona para <table> nem <tr>-->
+    </table>
+    <h2>Vídeo do Artigo</h2>
+    [Aqui entra um vídeo]
+    </article>
+    </section>
+<aside id="lateral">
+    <h1>Aside aqui</h1>
+    <h2>Momento Cap. Caverna</h2>
+    [Aqui entra um vídeo]
     <figure class="foto-legenda">
         <img src="_images/CapitaoCaverna.jpg" width=100>
         <figcaption><h1>AAAAhhhhhhh!!!!</figcaption>
-    </figure>
+    </figure> 
+</aside>
+<footer id=rodape>
+    <p>Copyright &copy; 2020 - by Maber</p>
+    <p><a href="http://www.facebook.com" target="_blank">Facebook</a> | 
+    <a href="http://www.facebook.com" target="_blank">Twitter</a></p>
+</footer>
+</div>
 </body>
 </html>

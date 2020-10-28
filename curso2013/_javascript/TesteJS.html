@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste JS</title>
+    <script>
+        var lampqbd = false;
+        function mudaLamp(tipo) {
+            if (!lampqbd) {
+                document.getElementById("luz").src = "../_images/"+ tipo + ".png";
+                if (tipo =='lamp-quebrada') {
+                    lampqbd = true;
+                }
+            }     
+        }
+    </script>
+</head>
+<body>
+    <h1>Acenda a Lâmpada</h1>
+    <img src="../_images/lamp-apagada.png" id="luz" onmousemove="mudaLamp('lamp-acesa')" onmouseout="mudaLamp('lamp-apagada')" onclick="mudaLamp('lamp-quebrada')">
+</body>
+</html>
