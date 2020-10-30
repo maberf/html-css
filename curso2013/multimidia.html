@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treinamento HTML5</title>
     <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/media.css">
 </head>
 <script>
     function mudaFoto (foto) {
@@ -36,10 +37,31 @@
         </nav>
     </header>
 
-    <h1>Multimidia</h1>
+    <section id="corpo-full"> 
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+            <hgroup>
+            <h1>Multimídia</h1>
+            <h3>Capitão Caverna</h3>
+            </hgroup>
+            </header>
+            <p>Veja multimídia do Capitão Caverna.</p>
 
-    Clique na área destacada na imagem para mais informações.
-    [AQUI ENTRA UMA IMAGEM]
+            <div id="tvradio">
+                <audio id="musica" controls="controls">
+                    <source src="_media/caverna.mp3" type="audio/mp3">
+                    <!--Mensagem de erro, só será mostrada se o source não for compatível com o navegador.-->
+                    Desculpe, mas não foi possível carregar o áudio.
+                </audio>
+                <video id="filme" controls="controls" poster="_images/airplane.png">
+                    <source src="_media/motociclo.mp4" type="video/mp4">
+                    <!--Mensagem de erro, só será mostrada se o source não for compatível com o navegador.-->
+                    Desculpe, mas não foi possível carregar o vídeo.
+                </video>
+            </div>
+            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/4EvNxWhskf8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+        </article>
+    </section>
 
 <footer id=rodape>
     <p>Copyright &copy; 2020 - by Maber</p>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treinamento HTML5</title>
     <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/specs.css"> <!--fonte personalizada-->
 </head>
 <script>
     function mudaFoto (foto) {
@@ -36,11 +37,28 @@
         </nav>
     </header>
 
-    <h1>Especificações</h1>
-
-    Clique na área destacada na imagem para mais informações
-    [AQUI ENTRA UMA IMAGEM]
-
+    <section id="corpo-full"> <!--utiliza as mesmas formatações de css de section-->
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+            <hgroup>
+            <h1>Especificações</h1>
+            <h3>Google Glass</h3>
+            </hgroup>
+            </header>
+            <p>Veja os detalhes do nosso produto.</p>
+            
+                <section id="conteudo">
+                    <img src="_images/googleglass.jpg" usemap="#meumapa">
+                    <!--mapa de imagens, pegar as coordenadas em algum editor de imagens-->
+                    <map name="meumapa">
+                        <area shape="rect" coords="30,108, 70,150" href="googleglass.html#bateria" target="janela">
+                        <area shape="rect" coords="315,60, 380,95" href="googleglass.html#camera" target="janela"> 
+                    </map>
+                    <iframe src="googleglass.html" name="janela" id="frame-spec" scrolling="no"></iframe>
+                </section>
+        </article>
+    </section id="corpo-full">
+       
 <footer id=rodape>
     <p>Copyright &copy; 2020 - by Maber</p>
     <p><a href="http://www.facebook.com" target="_blank">Facebook</a> | 

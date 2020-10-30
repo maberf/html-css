@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+section#conteudo {
+    width: 1000px;
+    margin: auto;
+}
+
+iframe#frame-spec {
+    width:300px;
+    height: 200px;
+    border: none;
+    overflow: hidden; /*evita rolagem, não funciona em todos os navegadores*/
+}
+
+/*diferentemente do curso, para esconder as barras de rolagem 
+teve=-se de usar o comando scrolling="no" dentro no iframe*/
