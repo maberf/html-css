@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treinamento HTML5</title>
     <link rel="stylesheet" href="_css/style.css">
-    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/form.css">
 </head>
-<script>
-    function mudaFoto (foto) {
-        document.getElementById("icone").src= foto;
-        /*<script language="javascript" src="_javascript/funcoes.js"<scripet>;*/ 
+<script>/*script de cálculo do preço total*/  
+    function calc_total() {
+        var qtd = parseInt(document.getElementById('cQtd').value);
+        tot = qtd *50;
+        document.getElementById('cTot').value = tot;
     }
 </script>
 <body>
@@ -21,7 +22,6 @@
         <h1>Cabeçalho</h1>
         <h2>Este é o texto de cabeçalho</h2>    
         </hgroup>
-
         <img id="icone" src="_images/canecacha.png">
        <!--HTML - Menu de navegação com links para arquivos internos-->
        <!--Formatação no CSS pela chave id-->
@@ -44,26 +44,69 @@
             <h3>Preencha os seus dados abaixo.</h3>
             </hgroup>
             </header>
-            
-            <form>
+            <!--formulário com método POST com output de envio de email-->
+            <form method="POST" id="fContato" action="mailto:contato@empresa.com.br" oninput="calc_total()">
                 <fieldset id="usuario"><legend>Identificação do Usuário</legend>
-                    <p>Nome:<input type="text" name="tNome" id="cNome" size="30" maxlength="40" placeholder="Nome Completo"></p>
-                    <p>Senha:<input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
-                    <p>Email:<input type="email" name="tEmail" id="cEmail" size="20" maxlength="30" placeholder="fulano@dominio.com.br"></p>
-                    <p>Telefone:<input type="tel" name="tTel" id="tTel" size="10" maxlength="10" placeholder="11 91111111"></p>
-                    <fieldset id="sexo"><legend>Sexo</legend>
-                        <!--uso de label com botões de radio-->
+                    <!--campos de formulário com inputs, labels são boa prática-->
+                    <p><label for="cNome">Nome:</label>
+                        <input type="text" name="tNome" id="cNome" size="30" maxlength="40" placeholder="Nome completo"></p>
+                    <p><label for="cSenha">Senha:</label>
+                        <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+                    <p><label for="cEmail">Email:</label>
+                        <input type="email" name="tEmail" id="cEmail" size="20" maxlength="30" placeholder="fulano@dominio.com.br"></p>
+                    <p><label for="cRua">Logradouro:</label>
+                        <input type="text" name="tRua" id="cRua" size="15" maxlength="80" placeholder="Sua rua"></p>
+                    <p><label for="cNum">Número:</label>
+                        <input type="number" name="tRua" id="cNum" min="0" max="99999"></p>
+                    <p><label for="tTel">Telefone:</label>
+                        <input type="tel" name="tTel" id="tTel" size="10" maxlength="10" placeholder="11 91111111"></p>
+                        <p><label for="cEst">Estado:</label> <!--caixa de seleção-->
+                        <select name="tEst" id="cEst">
+                            <optgroup label="Sudeste">
+                                <option value="SP">São Paulo</option> 
+                                <option value="RJ">Rio de Janeiro</option>
+                            </optgroup>
+                            <optgroup label="Sul">
+                                <option Value="SC">Santa Catarina</option>
+                                <option Value="RS" selected>Rio Grande do Sul</option><!--opção padrão-->
+                            </optgroup>
+                        </select></p>
+                        <p><label for="cNome">Cidade:</label>
+                            <input type="text" name="tCid" id="cCid" size="30" maxlength="40" placeholder="Sua cidade" list="cidades"></p>
+                            <datalist id="cidades"><!--input datalist, vinculação list-->
+                                <option value="Arroio Grande"></option>
+                                <option value="Xanxerê"></option>
+                                <option value="Petrópolis"></option>
+                            </datalist>                   
+                    <fieldset id="sexo"><legend>Sexo</legend><!--fieldset aninhado-->
+                        <!--botões de radio com label-->
                         <input type="radio" name="tSexo" id="cMasc" checked><label for="cMasc">Masculino</label></br>
                         <input type="radio" name="tSexo" id="cFem"><label for="cFem">Feminino</label>
                     </fieldset>
                 </fieldset>
                 <fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
-                    <p>Mensagem:</p>
-                    <p>Urgência:</p>
+                    <p><label for="cMsg">Mensagem:</label>
+                    <textarea name="tMsg" id="cMsg" cols="45" rows="5" placeholder="Deixe sua mensagem aqui"></textarea></p>
+                    <!--input com uso de range-->
+                    <p><label for="cUrg">Urgência:</label>
+                        Min<input type="range" name="tUrg" id="cUrg" min="0" max="5">Max</p>
                 </fieldset>
-                [BOTÃO ENVIAR]
+                <fieldset id="pedido"><legend>Pedido</legend>
+                      <!--input com uso de checkbox-->
+                    <p><input type="checkbox" name="tPed" id="cPed" checked>
+                        <label for="cPed">Pedido de Bob Esponja</label></p>
+                    <!--input com uso de caixa de cores-->
+                    <p><label for="cCor">Cor:</label>
+                        <input type="color" name="tCor" id="cCor" value="#0000FF"><p>                 
+                    <p><label for="cQtd">Quantidade:</label>
+                        <input type="number" name="tQtd" id="cQtd" min="0" max="10"></p>
+                    <!--input só demonstrativo, valor calculado via javasecript linha 10 -->
+                    <p><label for="cTot">Preço Total: R$</label>
+                        <input type="number" name="tTot" id="cTot" placeholder="Total a pagar" readonly></p>
+                </fieldset>
+                <input type="submit" name="tEnviar" value="Enviar"><!--botão Enviar-->
+                <!--pode-se botar uma imagem de um botão usando scr="/imagem"-->
             </form>
-
         </article>
     </section>
    
