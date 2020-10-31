@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treinamento HTML5</title>
     <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/style.css">
 </head>
 <script>
     function mudaFoto (foto) {
@@ -35,12 +36,37 @@
         </ul>
         </nav>
     </header>
+    <section id="corpo-full"> 
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+            <hgroup>
+            <h1>Formulário de Contato</h1>
+            <h3>Preencha os seus dados abaixo.</h3>
+            </hgroup>
+            </header>
+            
+            <form>
+                <fieldset id="usuario"><legend>Identificação do Usuário</legend>
+                    <p>Nome:<input type="text" name="tNome" id="cNome" size="30" maxlength="40" placeholder="Nome Completo"></p>
+                    <p>Senha:<input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+                    <p>Email:<input type="email" name="tEmail" id="cEmail" size="20" maxlength="30" placeholder="fulano@dominio.com.br"></p>
+                    <p>Telefone:<input type="tel" name="tTel" id="tTel" size="10" maxlength="10" placeholder="11 91111111"></p>
+                    <fieldset id="sexo"><legend>Sexo</legend>
+                        <!--uso de label com botões de radio-->
+                        <input type="radio" name="tSexo" id="cMasc" checked><label for="cMasc">Masculino</label></br>
+                        <input type="radio" name="tSexo" id="cFem"><label for="cFem">Feminino</label>
+                    </fieldset>
+                </fieldset>
+                <fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
+                    <p>Mensagem:</p>
+                    <p>Urgência:</p>
+                </fieldset>
+                [BOTÃO ENVIAR]
+            </form>
 
-    <h1>Fale Conosco</h1>
-
-    Clique na área destacada na imagem para mais informações.
-    [AQUI ENTRA UMA IMAGEM]
-
+        </article>
+    </section>
+   
 <footer id=rodape>
     <p>Copyright &copy; 2020 - by Maber</p>
     <p><a href="http://www.facebook.com" target="_blank">Facebook</a> | 
